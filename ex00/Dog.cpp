@@ -14,7 +14,11 @@
 #include <string>
 #include <iostream>
 
-Dog::Dog() : Animal("Dog") { std::cout << D_DEF_CONSTR; }
+Dog::Dog() : Animal()
+{
+	std::cout << D_DEF_CONSTR;
+	type = "Dog";
+}
 
 Dog::Dog(const std::string& newType) : Animal(newType) { std::cout << D_PARAM_CONSTR; }
 
@@ -25,7 +29,7 @@ Dog& Dog::operator=(const Dog& ref)
 	std::cout << D_COPY_OP;
 	if (this != &ref)
 	{
-		Dog::operator=(ref);
+		Animal::operator=(ref);
 	}
 	return *this;
 }
