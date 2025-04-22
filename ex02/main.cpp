@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 21:24:01 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/22 18:43:24 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/22 21:42:02 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,18 @@ int main(void)
 		std::cout << std::endl;
 		c = c2;
 		std::cout << std::endl;
+
+		Animal* cat = new Cat();
+		Animal* dog = new Dog();
+		
+		std::cout << std::endl;
+		*cat = *dog;
+		std::cout << cat->getType() << "\n";
+		cat->makeSound();
+		std::cout << std::endl;
+		
+		delete cat;
+		delete dog;
 	}
 	{
 		std::cout << "~~~~~~~~Animal array tests:~~~~~~~~" << "\n";
