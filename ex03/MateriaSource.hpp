@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:12:46 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/23 13:42:59 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 17:15:09 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class MateriaSource : public IMateriaSource
 		AMateria* memory[4];
 	public:
 		MateriaSource();
-		MateriaSource(std::string const& name);
 		MateriaSource(const MateriaSource& ref);
 		MateriaSource& operator=(const MateriaSource& ref);
 		~MateriaSource();

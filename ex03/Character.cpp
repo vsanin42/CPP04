@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 21:47:41 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/23 16:09:36 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 16:26:26 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,10 @@ void Character::equip(AMateria* m)
 		}
 	}
 	std::cout << "Inventory is full, materia not equipped\n";
-	//delete
 }
 
 void Character::unequip(int idx)
 {
-	// tdo something else?/////
 	if (idx >= 0 && idx <= 3)
 	{
 		if (inventory[idx])
@@ -108,7 +106,13 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	// todo something else?
 	if (idx >= 0 && idx <= 3)
-		inventory[idx]->use(target);
+	{
+		if (inventory[idx])
+			inventory[idx]->use(target);
+		else
+			std::cout << "Can't use materia at slot [" << idx << "]: empty\n";
+	}
+	else
+		std::cout << "Can't use materia at slot [" << idx << "]: out of range\n";
 }

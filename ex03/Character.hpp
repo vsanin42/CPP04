@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:22:14 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/23 15:23:15 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 17:03:26 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class Character : public ICharacter
 	private:
 		std::string name;
 		AMateria* inventory[4];
-		// AMateria* garbage[1000];
 	public:
 		Character();
 		Character(std::string const& name);

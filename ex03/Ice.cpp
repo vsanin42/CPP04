@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:40:19 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/23 11:55:04 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 17:38:07 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 Ice::Ice() : AMateria("ice") { std::cout << ICE_DEF_CONSTR; }
 
-Ice::Ice(std::string const& type) : AMateria(type) { std::cout << ICE_PARAM_CONSTR; } // needed?
+Ice::Ice(std::string const& type) : AMateria(type) { std::cout << ICE_PARAM_CONSTR; }
 
 Ice::Ice(const Ice& ref) : AMateria(ref) { std::cout << ICE_COPY_CONSTR; }
 
