@@ -16,8 +16,8 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-HEADERS =		AMateria.hpp Ice.hpp Cure.hpp
-SRC = main.cpp	AMateria.cpp Ice.cpp Cure.cpp
+HEADERS =		AMateria.hpp Ice.hpp Cure.hpp Character.hpp ICharacter.hpp
+SRC = main.cpp	AMateria.cpp Ice.cpp Cure.cpp Character.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 
