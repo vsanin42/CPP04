@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 21:47:41 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/23 10:55:19 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 16:09:36 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,13 @@ Character::Character(std::string const& name) : name(name)
 Character::Character(const Character& ref) : name(ref.name)
 {
 	std::cout << CHAR_COPY_CONSTR;
-	// deep copy
+	for (int i = 0; i < 4; i++)
+	{
+		if (ref.inventory[i])
+			inventory[i] = ref.inventory[i]->clone();
+		else
+			inventory[i] = NULL;
+	}
 }
 
 Character& Character::operator=(const Character& ref)
@@ -41,36 +47,63 @@ Character& Character::operator=(const Character& ref)
 	if (this != &ref)
 	{
 		name = ref.name;
-		// deep copy
+		for (int i = 0; i < 4; i++)
+		{
+			if (inventory[i])
+				delete inventory[i];
+			if (ref.inventory[i])
+				inventory[i] = ref.inventory[i]->clone();
+			else
+				inventory[i] = NULL;
+		}
 	}
 	return *this;
 }
 
-Character::~Character() { std::cout << CHAR_DESTR; }
+Character::~Character()
+{
+	std::cout << CHAR_DESTR;
+	for (int i = 0; i < 4; i++)
+	{
+		if (inventory[i])
+			delete inventory[i];
+	}
+}
 
 std::string const& Character::getName() const { return name; }
 
 void Character::equip(AMateria* m)
 {
-	int i;
-	for (i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (inventory[i] == NULL)
 		{
 			inventory[i] = m;
 			std::cout << "Materia of type '" << m->getType()
 					  << "' has been equipped in the inventory slot [" << i << "]\n";
+			return;
 		}
 	}
-	if (i == 4)
-		std::cout << "Inventory is full, materia not equipped\n";
+	std::cout << "Inventory is full, materia not equipped\n";
+	//delete
 }
 
 void Character::unequip(int idx)
 {
-	// tdo something else?
+	// tdo something else?/////
 	if (idx >= 0 && idx <= 3)
-		inventory[idx] = NULL;
+	{
+		if (inventory[idx])
+		{
+			std::cout << "Unequipped materia of type '" << inventory[idx]->getType()
+					  << "' at index [" << idx << "]\n";
+			inventory[idx] = NULL;
+		}
+		else
+			std::cout << "Can't unequip materia: inventory slot [" << idx << "] empty\n";
+	}
+	else
+		std::cout << "Can't unequip materia: index [" << idx << "] out of range\n";
 }
 
 void Character::use(int idx, ICharacter& target)

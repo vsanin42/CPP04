@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:08:49 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/22 20:36:18 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 13:42:41 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #define AM_PARAM_CONSTR	"AMateria:\tParametrized constructor called\n"
 #define AM_COPY_CONSTR	"AMateria:\tCopy constructor called\n"
 #define AM_COPY_OP		"AMateria:\tCopy assignment operator called\n"
-#define AM_DESTR		"AMateria:\tDestructor called\n"
+#define AM_DESTR		"AMateria:\tDestructor called\n\n"
 
 #include <string>
 #include "ICharacter.hpp"

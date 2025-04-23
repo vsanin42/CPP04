@@ -10,14 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = abstract
+NAME = materia
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 
-HEADERS =		AMateria.hpp Ice.hpp Cure.hpp Character.hpp ICharacter.hpp
-SRC = main.cpp	AMateria.cpp Ice.cpp Cure.cpp Character.cpp 
+HEADERS =		AMateria.hpp Ice.hpp Cure.hpp Character.hpp MateriaSource.hpp ICharacter.hpp IMateriaSource.hpp
+SRC = main.cpp	AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

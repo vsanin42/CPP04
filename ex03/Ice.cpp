@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:40:19 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/22 21:24:00 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 11:55:04 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ Ice::~Ice() { std::cout << ICE_DESTR; }
 
 AMateria* Ice::clone() const
 {
-	AMateria* newIce = new Ice();
+	AMateria* newIce = new Ice(*this);
 	return newIce;
 }
 
 void Ice::use(ICharacter& target)
 {
-	(void)target;
-	std::cout << "* shoots an ice bolt at " << /* target.name << */ " *\n";
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
 }

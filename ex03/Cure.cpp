@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:40:19 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/22 19:59:50 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 11:54:56 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,11 @@ Cure::~Cure() { std::cout << CURE_DESTR; }
 
 AMateria* Cure::clone() const
 {
-	AMateria* newCure = new Cure();
+	AMateria* newCure = new Cure(*this);
 	return newCure;
 }
 
 void Cure::use(ICharacter& target)
 {
-	(void)target;
-	std::cout << "* heals " << /* target.name << */ "'s wounds *\n";
+	std::cout << "* heals " << target.getName() << "'s wounds *\n";
 }

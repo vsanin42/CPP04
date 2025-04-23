@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:22:14 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/23 10:22:05 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 15:23:15 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #define CHAR_PARAM_CONSTR	"Character:\tParametrized constructor called\n"
 #define CHAR_COPY_CONSTR	"Character:\tCopy constructor called\n"
 #define CHAR_COPY_OP		"Character:\tCopy assignment operator called\n"
-#define CHAR_DESTR			"Character:\tDestructor called\n"
+#define CHAR_DESTR			"Character:\tDestructor called\n\n"
 
 #include "ICharacter.hpp"
 #include <string>
@@ -29,6 +29,7 @@ class Character : public ICharacter
 	private:
 		std::string name;
 		AMateria* inventory[4];
+		// AMateria* garbage[1000];
 	public:
 		Character();
 		Character(std::string const& name);
