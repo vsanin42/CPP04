@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 21:24:01 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/23 17:35:00 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 20:10:04 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int main(void)
 		bob->equip(ice2);
 		bob->equip(cure2);
 		bob->equip(extraIce);
+		bob->equip(NULL);
 		std::cout << std::endl;
 		
 		bob->unequip(0);
@@ -93,6 +94,9 @@ int main(void)
 		src->learnMateria(new Cure());
 		src->learnMateria(new Ice("notIce"));
 		src->learnMateria(new Cure("notCure"));
+		
+		src->learnMateria(NULL);
+		std::cout << std::endl;
 		
 		AMateria* extra = new Ice("extra");
 		std::cout << std::endl;
@@ -148,7 +152,17 @@ int main(void)
 		std::cout << "a: " << a.getName() << "\n";
 		std::cout << "b: " << b.getName() << "\n";
 		std::cout << "c: " << c.getName() << "\n";
-		std::cout << "d: " << d.getName() << "\n";
+		std::cout << "d: " << d.getName() << "\n\n";
+
+		d.equip(new Ice());
+		d.equip(new Cure());
+		a = d;
+		a.use(0, b);
+		a.use(1, b);
+		std::cout << std::endl;
+		std::cout << "d ice address: " << d.getInventoryItem(0) << "\n";
+		std::cout << "a ice address: " << a.getInventoryItem(0) << "\n";
+		std::cout << "^^^ if different -> deep copy successful\n\n";
 	}
 	{
 		std::cout << "~~~~~~~~OCCF tests - MateriaSource:~~~~~~~~\n\n";

@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 21:47:41 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/23 16:26:26 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 19:43:10 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ std::string const& Character::getName() const { return name; }
 
 void Character::equip(AMateria* m)
 {
+	if (!m)
+	{
+		std::cout << "Can't equip materia (NULL)\n";
+		return;
+	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (inventory[i] == NULL)
@@ -115,4 +120,12 @@ void Character::use(int idx, ICharacter& target)
 	}
 	else
 		std::cout << "Can't use materia at slot [" << idx << "]: out of range\n";
+}
+
+AMateria* Character::getInventoryItem(int idx) const
+{
+	if (idx >= 0 && idx <= 3)
+		return inventory[idx];
+	else
+		return NULL;
 }

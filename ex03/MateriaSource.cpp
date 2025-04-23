@@ -6,7 +6,7 @@
 /*   By: vsanin <vsanin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:15:42 by vsanin            #+#    #+#             */
-/*   Updated: 2025/04/23 16:14:34 by vsanin           ###   ########.fr       */
+/*   Updated: 2025/04/23 17:59:10 by vsanin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ MateriaSource::~MateriaSource()
 
 void MateriaSource::learnMateria(AMateria* m)
 {
+	if (!m)
+	{
+		std::cout << "Can't learn materia (NULL)\n";
+		return;
+	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (memory[i] == NULL)
@@ -77,7 +82,7 @@ void MateriaSource::learnMateria(AMateria* m)
 	std::cout << "Memory is full, materia not saved\n";
 }
 
-AMateria* MateriaSource::createMateria(std::string const & type)
+AMateria* MateriaSource::createMateria(std::string const &type)
 {
 	for (int i = 0; i < 4; i++)
 	{
